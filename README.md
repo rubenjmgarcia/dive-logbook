@@ -10,19 +10,27 @@ Developed as the Final Project for Harvard University's CS50x course.
 
 ### Logbook Overview
 
-screenshots/logbook.png
+![Logbook](screenshots/logbook.png)
+
+### Add New Dive
+
+![Add New Dive](screenshots/add_dive.png)
 
 ### Dive Details
 
-screenshots/dive-details.png
+![Dive Details](screenshots/dive_details.png)
 
 ### Statistics Dashboard
 
-screenshots/stats.png
+![Statistics Dashboard](screenshots/stats.png)
 
 ### Dive Site Management
 
-screenshots/dive-sites.png
+![Dive Site Management](screenshots/dive_sites.png)
+
+### Account
+
+![Account](screenshots/account.png)
 
 ## Technologies Used
 
@@ -489,16 +497,19 @@ Using Black ensures consistent code style, improves readability, and makes the p
 ## Installation
 
 Clone the repository:
-
+```text
 git clone https://github.com/rubenjmgarcia/dive-logbook.git
+```
 
 Install dependencies:
-
+```text
 pip install -r requirements.txt
+```
 
 Run:
-
+```text
 flask run
+```
 
 ---
 

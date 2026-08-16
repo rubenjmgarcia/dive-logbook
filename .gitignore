@@ -1,5 +1,7 @@
 flask_session/
 .pytest_cache
+__pycache__
 CS50x Icon.webp
 CS50x.pptx
 CS50x Final Project.mp4
+.venv
