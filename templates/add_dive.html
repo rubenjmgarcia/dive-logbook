@@ -1,0 +1,151 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Add Dive
+{% endblock %}
+
+{% block main %}
+    <form action="/add_dive" method="POST" class="mb-3">
+            <label for="number" class="form-label">Dive Number</label>
+            <input
+                class="form-control"
+                id="number"
+                name="number"
+                type="number"
+                required>
+        </div>
+
+        <div class="mb-3">
+            <label for="datetime" class="form-label">Date and Time</label>
+            <input
+                class="form-control"
+                id="datetime"
+                name="datetime"
+                type="datetime-local"
+                required>
+        </div>
+
+        <div class="mb-3">
+            <label for="divesite_id" class="form-label">Dive Site</label>
+            <select
+                class="form-select"
+                id="divesite_id"
+                name="divesite_id"
+                required>
+                <option value="">Select Dive Site</option>
+                {% for site in divesites %}
+                    <option value="{{ site.id }}">
+                        {{ site.divesite }}
+                    </option>
+                {% endfor %}
+            </select>
+        </div>
+
+        <div class="mb-3">
+            <label for="dive_time" class="form-label">Dive Time (min)</label>
+            <input
+                class="form-control"
+                id="dive_time"
+                name="dive_time"
+                type="number"
+                min="1"
+                max="180"
+                required>
+        </div>
+
+        <div class="mb-3">
+            <label for="max_depth" class="form-label">Maximum Depth (m)</label>
+            <input
+                class="form-control"
+                id="max_depth"
+                name="max_depth"
+                type="number"
+                step="0.1"
+                min="0"
+                max="200"
+                required>
+        </div>
+
+        <div class="mb-3">
+            <label for="av_depth" class="form-label">Average Depth (m)</label>
+            <input
+                class="form-control"
+                id="av_depth"
+                name="av_depth"
+                type="number"
+                step="0.1"
+                min="0">
+        </div>
+
+        <div class="mb-3">
+            <label for="start_pressure" class="form-label">Start Pressure (bar)</label>
+            <input
+                class="form-control"
+                id="start_pressure"
+                name="start_pressure"
+                type="number"
+                min="0"
+                max="232">
+        </div>
+
+        <div class="mb-3">
+            <label for="end_pressure" class="form-label">End Pressure (bar)</label>
+            <input
+                class="form-control"
+                id="end_pressure"
+                name="end_pressure"
+                type="number"
+                min="0"
+                max="232">
+        </div>
+
+        <div class="mb-3">
+            <label for="volume" class="form-label">Tank Volume (L)</label>
+            <input
+                class="form-control"
+                id="volume"
+                name="volume"
+                type="number"
+                step="0.1"
+                min="1"
+                max="15"
+                value="12">
+        </div>
+
+        <div class="mb-3">
+            <label for="water_temp" class="form-label">Water Temperature (°C)</label>
+            <input
+                class="form-control"
+                id="water_temp"
+                name="water_temp"
+                type="number"
+                min="-2"
+                max="40">
+        </div>
+
+        <div class="mb-3">
+            <label for="visibility" class="form-label">Visibility (m)</label>
+            <input
+                class="form-control"
+                id="visibility"
+                name="visibility"
+                type="number"
+                min="0">
+        </div>
+
+        <div class="mb-3">
+            <label for="notes" class="form-label">Notes</label>
+            <textarea
+                class="form-control"
+                id="notes"
+                name="notes"
+                rows="4"></textarea>
+        </div>
+
+        <button class="btn btn-primary" type="submit">
+            Save Dive
+        </button>
+
+    </form>
+{% endblock %}
+

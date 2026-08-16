@@ -1,0 +1,16 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Add Dive Site
+{% endblock %}
+
+{% block main %}
+    <form action="/add_dive_site" method="post">
+        <div class="mb-3">
+            <input class="form-control" id="dive_site" name="dive_site" type="text" placeholder="Dive Site Name" required>
+        </div>
+        <button class="btn btn-primary" type="submit">
+            Save Dive Site
+        </button>
+    </form>
+{% endblock %}

@@ -1,0 +1,29 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Dive Sites
+{% endblock %}
+
+{% block main %}
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th class="text-center">Dive Site</th>
+                <th class="text-center">Delete</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for site in dive_sites %}
+                <tr>
+                    <td class="text-center">{{ site.divesite }}</td>
+                    <td class="text-center">
+                        <form action="/delete_divesite" method="POST">
+                            <input type="hidden" name="divesite_id" value="{{ site.id }}">
+                            <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Delete this dive site?');">Delete</button>
+                        </form>
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

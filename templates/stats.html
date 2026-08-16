@@ -1,0 +1,57 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Statistics
+{% endblock %}
+
+{% block main %}
+
+<div class="container">
+
+    <h1 class="mb-4">Dive Statistics</h1>
+
+    <table class="table table-striped">
+        <tr>
+            <th>Total Dives</th>
+            <td>{{ stats.total_dives }}</td>
+        </tr>
+
+        <tr>
+            <th>Dive Sites Visited</th>
+            <td>{{ stats.dive_sites_visited }}</td>
+        </tr>
+
+        <tr>
+            <th>Max Depth</th>
+            <td>{{ stats.max_depth }} m</td>
+        </tr>
+
+        <tr>
+            <th>Average Depth</th>
+            <td>{{ stats.average_depth or "-" }} m</td>
+        </tr>
+
+        <tr>
+            <th>Max Dive time</th>
+            <td>{{ stats.max_dive_time }} min</td>
+        </tr>
+
+        <tr>
+            <th>Average Dive time</th>
+            <td>{{ stats.average_time }} min</td>
+        </tr>
+
+        <tr>
+            <th>Total Dive time</th>
+            <td>{{ stats.total_dive_time }} min</td>
+        </tr>
+
+        <tr>
+            <th>Average SAC</th>
+            <td>{{ stats.average_sac or "-" }} L/min</td>
+        </tr>
+
+    </table>
+</div>
+
+{% endblock %}

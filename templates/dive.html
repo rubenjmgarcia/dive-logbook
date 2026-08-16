@@ -1,0 +1,101 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Dive #{{ dive.number }}
+{% endblock %}
+
+{% block main %}
+
+<div class="container">
+
+    <h1 class="mb-4">Dive #{{ dive.number }}</h1>
+
+    <table class="table table-striped">
+        <tr>
+            <th>Date & Time</th>
+            <td>{{ dive.datetime }}</td>
+        </tr>
+
+        <tr>
+            <th>Dive Site</th>
+            <td>{{ dive.divesite }}</td>
+        </tr>
+
+        <tr>
+            <th>Dive Time</th>
+            <td>{{ dive.dive_time }} min</td>
+        </tr>
+
+        <tr>
+            <th>Max Depth</th>
+            <td>{{ dive.max_depth }} m</td>
+        </tr>
+
+        <tr>
+            <th>Average Depth</th>
+            <td>{{ dive.av_depth or "-" }} m</td>
+        </tr>
+
+        <tr>
+            <th>Start Pressure</th>
+            <td>{{ dive.start_pressure or "-" }} bar</td>
+        </tr>
+
+        <tr>
+            <th>End Pressure</th>
+            <td>{{ dive.end_pressure or "-" }} bar</td>
+        </tr>
+
+        <tr>
+            <th>Tank Volume</th>
+            <td>{{ dive.volume or "-" }} L</td>
+        </tr>
+
+        <tr>
+            <th>SAC</th>
+            <td>{{ dive.sac or "-" }} L/min</td>
+        </tr>
+
+        <tr>
+            <th>Water Temperature</th>
+            <td>{{ dive.water_temp or "-" }} °C</td>
+        </tr>
+
+        <tr>
+            <th>Visibility</th>
+            <td>{{ dive.visibility or "-" }} m</td>
+        </tr>
+
+        <tr>
+            <th>Notes</th>
+            <td>{{ dive.notes or "-" }}</td>
+        </tr>
+
+
+        <td>
+            <form action="/update_dive" method="GET">
+                <input type="hidden" name="id" value="{{ dive.id }}">
+                <button type="submit" class="btn btn-warning btn-sm">
+                    Update
+                </button>
+            </form>
+        </td>
+
+        <td>
+            <form action="/delete_dive" method="POST">
+                <input type="hidden" name="id" value="{{ dive.id }}">
+                <button
+                    type="submit"
+                    class="btn btn-danger btn-sm"
+                    onclick="return confirm('Delete dive #{{ dive.number }}?');"
+                >
+                    Delete
+                </button>
+            </form>
+        </td>
+
+
+    </table>
+</div>
+
+{% endblock %}

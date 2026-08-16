@@ -1,0 +1,30 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Dives
+{% endblock %}
+
+{% block main %}
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th class="text-center">Number</th>
+                <th class="text-center">Date and Time</th>
+                <th class="text-center">Dive Site</th>
+                <th class="text-center">Dive Time (min)</th>
+                <th class="text-center">Max Depth (m)</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for dive in user_logbook %}
+                <tr onclick="window.location='/dive?number={{ dive.number }}';" style="cursor: pointer;">
+                    <td class="text-center">{{ dive.number }}</td>
+                    <td class="text-center">{{ dive.datetime }}</td>
+                    <td class="text-center">{{ dive.divesite }}</td>
+                    <td class="text-center">{{ dive.dive_time }}</td>
+                    <td class="text-center">{{ dive.max_depth }}</td>
+                </tr>
+                {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}
